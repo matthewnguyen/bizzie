@@ -19,7 +19,7 @@
     $(function () {
       var socket = io();
       $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
+        socket.emit('chat message', $('#sn').val() + ': ' + $('#m').val());
         $('#m').val('');
         return false;
       });
@@ -33,6 +33,7 @@
   </script>
   <body>
     <ul id="messages"></ul>
+    <input id="sn" autocomplete="off" />
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
